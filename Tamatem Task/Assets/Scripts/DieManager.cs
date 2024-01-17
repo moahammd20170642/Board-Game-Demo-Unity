@@ -7,18 +7,19 @@ public class DieManager : MonoBehaviour
     public RandomApiManager randomApiManager;
     private Sprite[] diceSides;
     private SpriteRenderer rend;
-  
+    public Animator DiceAnimator;
    
 
     // Use this for initialization
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        rend.enabled = false;
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
         rend.sprite = diceSides[5];
     }
 
-    private void OnMouseDown()
+    public void Roll()
     {
       
             StartCoroutine("RollTheDice");
@@ -26,14 +27,17 @@ public class DieManager : MonoBehaviour
 
     private IEnumerator RollTheDice()
     {
-       
-             int randomDiceSide = 0;
-       
-            randomDiceSide = randomApiManager.GetCurrentRandomNumber();
-            rend.sprite = diceSides[randomDiceSide-1];
-            yield return new WaitForSeconds(0.05f);
+        rend.enabled = false;
+        int randomDiceSide = 0;
+        randomDiceSide = randomApiManager.GetCurrentRandomNumber();
+        DiceAnimator.SetTrigger("Roll");
+        yield return new WaitForSeconds(0.5f);
+        rend.enabled=true;
+        rend.sprite = diceSides[randomDiceSide-1];
+         Debug.Log(""+ randomDiceSide);
+        yield return new WaitForSeconds(0.05f);
         
 
-     
+
     }
 }
