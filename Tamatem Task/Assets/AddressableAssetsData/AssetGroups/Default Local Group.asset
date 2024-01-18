@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 06619e0add025fa42bb7d9f83be53e7c
+  m_SerializeEntries:
+  - m_GUID: 8994e15d905e6c047a312592b62ef7ea
+    m_Address: Assets/UsedImages/DiceImages/dice 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb44c4094f5688044aec5d77f293a003
+    m_Address: Assets/UsedImages/DiceImages/dice 2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b307543a62c9814c9b22bc9c73df03a
+    m_Address: Assets/UsedImages/DiceImages/dice 3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caf8da3d872855f42b1cfe86fc8295bb
+    m_Address: Assets/UsedImages/DiceImages/dice 4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8afc22de87d0de845960d88341452065
+    m_Address: Assets/UsedImages/DiceImages/dice5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b5e8433a2a23c647bbd4bd033c82040
+    m_Address: Assets/UsedImages/DiceImages/dice6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9bd3cfe35cf43747818fd6dce77fc9d
+    m_Address: Assets/UsedImages/ChipImage.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5d7349743cfd4ea40acd432af4300ace, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cd233f2c5e54e484dae76c7788a389a4, type: 2}
+    - {fileID: 11400000, guid: 01099fe9e6d6dde49ba7da5cd2d45e27, type: 2}

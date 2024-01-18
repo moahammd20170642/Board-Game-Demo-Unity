@@ -42,7 +42,7 @@ public class RandomApiManager : MonoBehaviour
 
     void Awake()
     {
-        // Start the API call when the script starts to make we have one random number when the GetCurrentRandomNumber() is called 
+        // Start the API call On Awake to make Sure we have one random number when the GetCurrentRandomNumber() is called 
         RequestNewRandomNumber();
     }
 
@@ -95,8 +95,8 @@ public class RandomApiManager : MonoBehaviour
    
     public int GetCurrentRandomNumber()
     {
-        RequestNewRandomNumber();//////////refresh the random call , on verytime we called GetCurrentRandomNumber() 
-     
+        RequestNewRandomNumber();                   //////////refresh the random call , on verytime we called GetCurrentRandomNumber() 
+
         return CurrentRandomNumber;
     }
 

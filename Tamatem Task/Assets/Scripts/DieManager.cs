@@ -7,7 +7,7 @@ public class DieManager : MonoBehaviour
    public  PlayerController PlayerController;
 
     public RandomApiManager randomApiManager;
-    private Sprite[] diceSides;
+    public List <Sprite> DieImages;      //It will be filled from the Addressable Manager  
     private SpriteRenderer rend;
     public Animator DiceAnimator;
    
@@ -15,10 +15,10 @@ public class DieManager : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        
         rend = GetComponent<SpriteRenderer>();
         rend.enabled = false;
-        diceSides = Resources.LoadAll<Sprite>("DiceSides/");
-        rend.sprite = diceSides[5];
+        //rend.sprite = DieImages[0];
     }
 
     public void Roll()
@@ -30,17 +30,15 @@ public class DieManager : MonoBehaviour
     private IEnumerator RollTheDice()
     {
         rend.enabled = false;
-       randomDiceSide = 0;
+         randomDiceSide = 0;
         randomDiceSide = randomApiManager.GetCurrentRandomNumber();
         DiceAnimator.SetTrigger("Roll");
         yield return new WaitForSeconds(0.5f);
         rend.enabled=true;
-        rend.sprite = diceSides[randomDiceSide-1];
-         Debug.Log(""+ randomDiceSide);
+        rend.sprite = DieImages[randomDiceSide-1];
         PlayerController.waypointIndex += randomDiceSide;
-        Debug.Log("" + PlayerController.waypointIndex);
-        //yield return new WaitForSeconds(0.05f);
-        //PlayerController.allow();
+       
+  
 
 
     }
