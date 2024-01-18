@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+
 public class RandomApiManager : MonoBehaviour
 {
     public int CurrentRandomNumber;
@@ -16,6 +17,7 @@ public class RandomApiManager : MonoBehaviour
 
         [JsonProperty("max")]
         public int Max { get; set; }
+                                                                            //API Responce Data  .....Converted from Json To C# Code    
 
         [JsonProperty("num")]
         public int Num { get; set; }
@@ -42,6 +44,8 @@ public class RandomApiManager : MonoBehaviour
 
     void Awake()
     {
+        CurrentRandomNumber = -1;    /// to know if the api request still not complete or faild
+
         // Start the API call On Awake to make Sure we have one random number when the GetCurrentRandomNumber() is called 
         RequestNewRandomNumber();
     }
@@ -55,6 +59,9 @@ public class RandomApiManager : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
         {
             Debug.LogError("Error: " + webRequest.error);
+
+            CurrentRandomNumber = -1;      // -1 mean the api request faild 
+            //DisconnectedrText.text.;
         }
         else
         {
@@ -64,14 +71,7 @@ public class RandomApiManager : MonoBehaviour
             // Access the random numbers
             foreach (var response in responses)
             {
-                //Debug.Log("Status: " + response.Status);
-                //if (response.Parameters != null)
-                //{
-                //    foreach (var parameter in response.Parameters)
-                //    {
-                //        Debug.Log("Parameter: " + parameter.RequestId + ", " + parameter.Min + ", " + parameter.Max + ", " + parameter.Num + ", " + parameter.Unique);
-                //    }
-                //}
+              
                 if (response.Values != null)
                 {
                     CurrentRandomNumber = response.Values[0];

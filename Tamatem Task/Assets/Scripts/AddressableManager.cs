@@ -6,8 +6,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class AddressableManager : MonoBehaviour
 {
-    public DieManager dieManager; // refrence to dieManger to assign the Die Images List 
-    public SpriteRenderer chip;   //  refrence to the Ship SpriteRenderer to assign the ShipImage ;
+    public DieManager dieManager; // refrence to dieManger to assign the Die Images List after loading ...
+    public SpriteRenderer chip;   //  refrence to the Ship SpriteRenderer to assign the ShipImage after loading .... ;
     public string playerImageAddress;       
     public List<string> DieImagesAdersses; 
 

@@ -18,11 +18,18 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        nextwaypoint = 1;
-        target = waypoints[nextwaypoint].transform.position;
-        transform.position = waypoints[waypointIndex].transform.position;
+        ResetPlayerPosition();            
     }
 
+    public void ResetPlayerPosition()  ///Asigned On Reset Button 
+    {
+
+        waypointIndex = 0;
+        nextwaypoint = 1;
+        transform.position = waypoints[waypointIndex].transform.position;   /////Start position 
+        target = waypoints[nextwaypoint].transform.position;
+
+    }
     public void TapPlayer()
     {
         playertapped = true;
@@ -76,8 +83,8 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position,
              target,
 
-            moveSpeed * Time.deltaTime);
-            if (transform.position == target)
+            moveSpeed * Time.deltaTime);                                        // why coded this way ?.. the player must move on the board by all waypoint on the way without crossing  
+            if (transform.position == target)                                                       
             {
                 nextwaypoint++;
 
