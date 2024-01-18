@@ -40,7 +40,7 @@ public class RandomApiManager : MonoBehaviour
 
 
 
-    void Start()
+    void Awake()
     {
         // Start the API call when the script starts to make we have one random number when the GetCurrentRandomNumber() is called 
         RequestNewRandomNumber();
@@ -74,7 +74,8 @@ public class RandomApiManager : MonoBehaviour
                 //}
                 if (response.Values != null)
                 {
-                   CurrentRandomNumber = response.Values[0];
+                    CurrentRandomNumber = response.Values[0];
+                    //Debug.Log("current API CAll "+ CurrentRandomNumber);
                 }
             }
 
@@ -91,10 +92,7 @@ public class RandomApiManager : MonoBehaviour
     }
 
 
-    public void press()
-    {
-        Debug.Log("" + GetCurrentRandomNumber());
-    }
+   
     public int GetCurrentRandomNumber()
     {
         RequestNewRandomNumber();//////////refresh the random call , on verytime we called GetCurrentRandomNumber() 
