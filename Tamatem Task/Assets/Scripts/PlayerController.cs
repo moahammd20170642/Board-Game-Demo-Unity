@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed = 1f;
 
     public Vector3 target;
-   
+
     public static int waypointIndex = 0;
-   public  int nextwaypoint = 0;
+    public int nextwaypoint = 0;
     public bool moveAllowed = false;
-    public bool playertapped=false ;
+    public bool playertapped = false;
     // Use this for initialization
     private void Start()
     {
@@ -23,41 +23,72 @@ public class PlayerController : MonoBehaviour
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
-
+    public void TapPlayer()
+    {
+        playertapped = true;
+        Debug.Log("playerTapped");
+    }
     private void Update()
     {
-        if (nextwaypoint <= waypointIndex&&playertapped)
+        Move();
+        checkIfPlayerTapped();
+
+    }
+
+
+    public void checkIfPlayerTapped()
+    {
+        // Check for touch or mouse input
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        {
+            Vector3 touchPosition;
+
+            // Check if it's a touch or mouse click
+            if (Input.touchCount > 0)
+            {
+                // Use touch position for mobile
+                touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            }
+            else
+            {
+                // Use mouse position for other platforms
+                touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+
+            // Check if the touch/click is on the player
+            if (GetComponent<Collider2D>().OverlapPoint(touchPosition))
+            {
+
+                TapPlayer();
+
+
+            }
+        }
+
+
+    }
+
+    public void Move()
+    {
+        if (nextwaypoint <= waypointIndex && playertapped)
         {
             target = waypoints[nextwaypoint].transform.position;
-
-
             transform.position = Vector2.MoveTowards(transform.position,
              target,
 
             moveSpeed * Time.deltaTime);
-            if(transform.position==target)
+            if (transform.position == target)
             {
                 nextwaypoint++;
-            }
-        }
-        }
-
-
-        public  void   Move( )
-    {
-        int numOfsteps = DieManager.randomDiceSide;
-         waypointIndex += numOfsteps;
-      
-       
-            if (waypointIndex <= waypoints.Length - 1)
-            {
-
-               
-
 
             }
+
         }
-        
+        else
+        {
+            playertapped = false;
+        }
+
     }
 
-
+}

@@ -39,7 +39,7 @@ public class DieManager : MonoBehaviour
          Debug.Log(""+ randomDiceSide);
         PlayerController.waypointIndex += randomDiceSide;
         Debug.Log("" + PlayerController.waypointIndex);
-        yield return new WaitForSeconds(0.05f);
+        //yield return new WaitForSeconds(0.05f);
         //PlayerController.allow();
 
 
