@@ -30,7 +30,6 @@ public class DieManager : MonoBehaviour
         if (allowedToRoll)
         {
             StartCoroutine("RollTheDice");
-            allowedToRoll = false;                // the player cant roll untill the chip taped and finich mooving 
         }
     }
 
@@ -41,7 +40,9 @@ public class DieManager : MonoBehaviour
 
       if (randomDiceSide != -1)                // if the Api request succeed 
         {
-         
+
+            allowedToRoll = false;                // the player cant roll untill the chip taped and finich mooving 
+
             AnimatedDie.enabled = true; //// Eanble  animated die when roll button is pressed 
             DiceAnimator.SetTrigger("Roll");
             yield return new WaitForSeconds(0.5f);
