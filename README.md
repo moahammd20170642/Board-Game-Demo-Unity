@@ -166,7 +166,7 @@ The `UIManager` script is a key component in this Unity project, responsible for
   - If the `DieManager` indicates that rolling is allowed (`DieManager.allowedToRoll == true`) and the Roll Button is currently inactive, the Roll Button is set to active. This ensures the Roll Button is visible when it's allowed to roll.
 
 
-## RandomApiManager Overview
+# RandomApiManager Overview
 
 The `RandomApiManager` script manages the interaction with an external API to fetch random numbers within a specified range. This component is crucial for obtaining random values, such as simulating the roll of a die in the Unity assignment.
 
