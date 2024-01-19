@@ -80,7 +80,7 @@ public class RandomApiManager : MonoBehaviour
             }
 
 
-            webRequest.Dispose();
+            webRequest.Dispose();                   ///Garabage Memory handling ..
 
         }
     }

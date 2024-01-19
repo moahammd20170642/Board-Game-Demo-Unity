@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         playertapped = true;
         Debug.Log("playerTapped");
+        DieManager.allowedToRoll = true;                  // allow to roll again after the chip finish moving
     }
     private void Update()
     {
@@ -87,13 +88,15 @@ public class PlayerController : MonoBehaviour
             if (transform.position == target)                                                       
             {
                 nextwaypoint++;
-
+                                                                                    
             }
 
         }
         else
         {
-            playertapped = false;
+                    
+            playertapped = false;       
+            
         }
 
     }

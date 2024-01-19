@@ -12,11 +12,13 @@ public class DieManager : MonoBehaviour
     public List <Sprite> DieImages;              //It will be filled from the Addressable Manager  
     private SpriteRenderer Die;
     public Animator DiceAnimator;
-  
+    public  static  bool  allowedToRoll;
     public static int  randomDiceSide;
+   
     // Use this for initialization
     private void Start()
     {
+        allowedToRoll = true; 
         AnimatedDie.enabled=false;
         Die = GetComponent<SpriteRenderer>();
         Die.enabled = false;
@@ -25,17 +27,21 @@ public class DieManager : MonoBehaviour
 
     public void Roll()
     {
-      
+        if (allowedToRoll)
+        {
             StartCoroutine("RollTheDice");
+            allowedToRoll = false;                // the player cant roll untill the chip taped and finich mooving 
+        }
     }
 
     private IEnumerator RollTheDice()
-    {
+    {       
            Die.enabled = false;
            randomDiceSide = randomApiManager.GetCurrentRandomNumber();
 
       if (randomDiceSide != -1)                // if the Api request succeed 
         {
+         
             AnimatedDie.enabled = true; //// Eanble  animated die when roll button is pressed 
             DiceAnimator.SetTrigger("Roll");
             yield return new WaitForSeconds(0.5f);
@@ -44,8 +50,8 @@ public class DieManager : MonoBehaviour
             Die.enabled = true;                                // enable the actual die with the randomied image 
             Die.sprite = DieImages[randomDiceSide - 1];           // the images list first index is 0 ;
             PlayerController.waypointIndex += randomDiceSide;   //updating the waypoint index for the player (chip)   
-
-
+            
+            
 
         }
     }
