@@ -1,4 +1,4 @@
-# Technical-Assignment_Mohammad_Salah (Ludo Game Demo)
+# (Ludo Game Demo)
 
 
 ## Download Andriod Apk
